@@ -1,4 +1,16 @@
 extends layouts/main.pug
 
 block content
-    p Video Detail
+    .video__playter
+        video(src=`/${video.fileUrl}`, controls=true)
+    .video__info
+        a(href=routes.editVideo(video.id)) Edit Video
+        h5.video__title=video.title
+        span.video__views=video.views
+        p.video__description=video.description
+    // 코멘트 DB 추가 시 수정 
+    //- .video__comments
+    //-     if video.comments.length === 1
+    //-         span.video__comment--number 1 comment
+    //-     else
+    //-         span.video__comment--number #{video.comments.length} comments
